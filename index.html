@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+<style>
+body {
+    text-align: center;
+    margin-top: 120px;
+    font-family: Arial, sans-serif;
+}
+h1 { font-size: 40px; }
+button {
+    font-size: 22px;
+    padding: 10px 25px;
+    margin: 15px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Do you love me?</h1>
+
+<button class="yes-button" onclick="handleYesClick()">Yes</button>
+<button class="no-button" onclick="handleNoClick()">No</button>
+
+<script>
+let messageIndex = 0;
+
+const messages = [
+"Are you sure?",
+"Really sure?",
+"Think again!",
+"Last chance!",
+"You might regret this!"
+];
+
+function handleNoClick() {
+const noButton = document.querySelector('.no-button');
+const yesButton = document.querySelector('.yes-button');
+
+noButton.textContent = messages[messageIndex];
+messageIndex = (messageIndex + 1) % messages.length;
+
+const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+yesButton.style.fontSize = `${currentSize * 1.5}px`;
+}
+
+function handleYesClick() {
+document.body.innerHTML = "<h1>I knew it 😌❤️</h1>";
+}
+</script>
+
+</body>
+</html>
